@@ -2,6 +2,10 @@
 
 <br />
 
+<br />
+<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/Arquitectura.png"></p>
+<br />
+
 ## Tabla de contenido 📑
 
 1. [Requisitos](#Requisitos-newspaper)
