@@ -23,6 +23,8 @@
 
 - :cloud: [IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started&locale=en)
 
+- :satellite: [OpenVPN](https://openvpn.net/)
+
 - [Git](https://git-scm.com/downloads)
 
 ## Configuración de la autenticación client-to-site :gear:
@@ -246,7 +248,6 @@ Finalmente, habilite el endpoint privado
 
 ## Referencias :mag:
 
-- [Documentación de IBM Cloud: About client-to-site VPN servers (Beta)](https://cloud.ibm.com/docs/vpc?topic=vpc-vpn-client-to-site-overview)
 - [Guía VPC-Despliegue-VSI-Acceso-SSH IBM Colombia](https://github.com/emeloibmco/VPC-Despliegue-VSI-Acceso-SSH)
 
 <br />
