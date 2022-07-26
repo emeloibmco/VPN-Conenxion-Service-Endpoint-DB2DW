@@ -7,7 +7,11 @@
 1. [Requisitos](#Requisitos-newspaper)
 2. [Configuración de la autenticación client-to-site e importación de certificados al Certificate Manager](#configuración-de-la-autenticación-client-to-site-gear)
 3. [Creación del grupo de acceso IAM y rol para conectarse al servidor VPN](#creación-del-grupo-de-acceso-iam-y-rol-para-conectarse-al-servidor-vpn-oldkey)
+
+
 3. [Creación de la VPC y la subnet](#creación-de-la-vpc-y-la-subnet)
+4. [Configurar claves SSH](#configurar-claves-ssh-closedlockwithkey)
+5. [Instalar Nginx](#instalar-nginx-bulb)
 5. [Referencias](#Referencias-mag)
 6. [Autores](#Autores-black_nib)
 <br />
@@ -19,7 +23,6 @@
 
 - :cloud: [IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started&locale=en)
 
-- :satellite: [OpenVPN](https://openvpn.net/)
 - [Git](https://git-scm.com/downloads)
 
 ## Configuración de la autenticación client-to-site :gear:
@@ -218,6 +221,28 @@ Cuando ya tenga todos los campos configurados dé click en el botón ```Create v
 2. Espere unos minutos mientras la *VSI* aparece en estado disponible y asegúrese de tener seleccionada la región en la cual la implementó.
 
 <br />
+
+
+## Instalar Nginx :bulb:
+Después de ingresar a su VSI por medio de la llave SSH, puede proceder a instalar nginx en su virtual server. Para esto use los siguientes comandos:
+```
+yum upgrade
+```
+
+```
+yum install epel-release
+```
+
+```
+yum install nginx
+```
+
+Ingrese a la carpeta de nginx que está ubicada en el path ```/etc/nginx/``` y luego de esto acceda al archivo de configuración con el siguiente comando:
+```
+cat nginx.conf
+```
+
+Finalmente, habilite el endpoint privado
 
 ## Referencias :mag:
 
