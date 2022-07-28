@@ -94,12 +94,15 @@ Para crear una VPC en su cuenta de IBM Cloud siga los pasos que se indican a con
 
 1. Dé click en el Menú de Navegación y seleccione la pestaña ```VPC Infrastructure```.
 
-2. En la sección de ```Network``` seleccione la opción ```VPCs``` y posteriormente de click en el botón ```Create```. Una vez le aparezca la ventana para la configuración y creación de la *VPC*, complete lo siguiente:
+2. En la sección de ```Network``` seleccione la opción ```VPCs``` y posteriormente dé click en el botón ```Create```. 
+
+<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/Arquitectura.png"></p>
+
+Una vez le aparezca la ventana para la configuración y creación de la *VPC*, complete lo siguiente:
 
 * ```Name```: asigne un nombre exclusivo para la *VPC*.
 * ```Resource Group```: seleccione el grupo de recursos en el cual va a trabajar.
 * ```Location```: seleccione la ubicación en la cual desea implementar la *VPC*.
-
 * ```Default security group```: deje seleccionadas las opciones *Permitir SSH* y *Permitir ping*.
 * ```Classic access```: deje el campo SIN seleccionar.
 * ```Default address prefixes```: deje el campo SIN seleccionar, ya que posteriormente se creará la subred en la que se va a trabajar.
