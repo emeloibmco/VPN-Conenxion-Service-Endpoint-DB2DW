@@ -152,7 +152,7 @@ Para crear una autorización IAM sevice-to-service para su servidor VPN y certif
 
 <p align="center"><img width="500" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/aut-IAM.png"></p>
 
-## Gestión de certificados de cliente y servidor VPN
+### Gestión de certificados de cliente y servidor VPN
 <br/>
 Para la gestión de certificados hay dos opciones, usar OpenVPN para generar los certificados u ordenar un certificado usando Certificate Manager.
 
@@ -233,7 +233,7 @@ Para poder desplegar una *VSI* en *VPC* es necesario realizar la respectiva conf
 ssh-keygen -t rsa -C "user_id"
 ```
 
-2. Al colocar el comando anterior, en la consola se pide que especifique la ubicación, en este caso oprima la tecla Enter para que se guarde en la ubicación sugerida. Posteriormente, cuando se pida la ```Passphrase``` coloque una constraseña que pueda recordar o guárdela, ya que se utilizará más adelante.
+2. Al colocar el comando anterior, en la consola se pide que especifique la ubicación, en este caso oprima la tecla Enter para que se guarde en la ubicación sugerida. Posteriormente, cuando se pida la ```Passphrase``` coloque una contraseña que pueda recordar o guárdela, ya que se utilizará más adelante.
 
 3. Muévase con el comando ```cd .ssh``` a la carpeta donde están los archivos ```id_rsa.pub``` y ```id_rsa```. Estos archivos contienen las claves públicas y privadas respectivamente. 
 
@@ -245,11 +245,15 @@ cat id_rsa.pub
 
 <br />
 
-**Desplegar VSI en VPC**
+### Desplegar VSI en VPC
 <br/>
 Una vez ha configurado las claves *SSH* proceda con la creación de la *VSI* Linux en *VPC*. Complete los siguientes pasos:
 
-1. Entre al menú desplegable y seleccione ```VPC Infrastructure```. En la sección de ```Compute``` seleccione la opción ```Virtual Server instances``` y posteriormente dé click en el botón ```Create```. Una vez le aparezca la ventana para la configuración y creación de la *VSI*, complete lo siguiente:
+1. Entre al menú desplegable de la izquierda y seleccione ```VPC Infrastructure```. En la sección de ```Compute``` seleccione la opción ```Virtual Server instances``` y posteriormente dé click en el botón ```Create```. 
+
+<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/Arquitectura.png"></p>
+
+Una vez le aparezca la ventana para la configuración y creación de la *VSI*, complete lo siguiente:
 
 * ```Name```: asigne un nombre exclusivo para la *VSI*.
 * ```Resource group```: seleccione el grupo de recursos en el cual va a trabajar (el mismo seleccionado en la creación de la *VPC*).
@@ -257,7 +261,7 @@ Una vez ha configurado las claves *SSH* proceda con la creación de la *VSI* Lin
 * ```Hosting type```: seleccione la opción **Public**.
 * ```Operating system```: seleccione la opción **Ubuntu Linux**.
 * ```Profile```: deje seleccionado el perfil que viene por defecto (**Balanced | bx2-2x8**).
-* ```SSH keys```: dé click en el botón ```Create key +```, asigne un nombre exclusivo para su clave *SSH*, seleccione el grupo de recursos y la ubicación y finalmente en **Public key** coloque la clave copiada en el ítem 3 del paso [Configurar claves SSH](#Configurar-claves-SSH-closed_lock_with_key). Posteriormente, dé click en el botón ```Create```.
+* ```SSH keys```: dé click en el botón ```Create key +```, asigne un nombre exclusivo para su clave *SSH*, seleccione el grupo de recursos y la ubicación y finalmente en **Public key** coloque la clave copiada en el ítem 4 del paso [Configurar claves SSH](#configurar-claves-ssh-closedlockwithkey). Posteriormente, dé click en el botón ```Create```.
 * ```Virtual private cloud```: seleccione la *VPC* creada anteriormente.
 * Los demás parámetros no los modifique, deje los valores establecidos por defecto.
 
