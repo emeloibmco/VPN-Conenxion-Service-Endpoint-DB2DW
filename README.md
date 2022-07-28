@@ -100,22 +100,6 @@ Para crear una VPC en su cuenta de IBM Cloud siga los pasos que se indican a con
 * ```Resource Group```: seleccione el grupo de recursos en el cual va a trabajar.
 * ```Location```: seleccione la ubicación en la cual desea implementar la *VPC*.
 
-
-| NAME | DISPLAY NAME |
-| ------------- | :---: |
-| au-syd        | Sydney          |     
-| in-che        | Chennai         |     
-| jp-osa        | Osaka           |     
-| jp-tok        | Tokyo           |     
-| kr-seo        | Seoul           |     
-| eu-de         | Frankfurt       | 
-| eu-gb         | London          | 
-| ca-tor        | Toronto         |     
-| us-south      | Dallas          | 
-| us-south-test | Dallas Test     |
-| us-east       | Washington DC   |
-| br-sao        | Sao Paulo       |
-
 * ```Default security group```: deje seleccionadas las opciones *Permitir SSH* y *Permitir ping*.
 * ```Classic access```: deje el campo SIN seleccionar.
 * ```Default address prefixes```: deje el campo SIN seleccionar, ya que posteriormente se creará la subred en la que se va a trabajar.
