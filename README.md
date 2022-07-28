@@ -83,7 +83,7 @@ En el banner superior, dé click en ```Manage``` y seleccione la opción ```Acco
 
 No modifique la descripción del caso, ingrese su número de cuenta y dé click en ```Submit```.
 
-La habilitación del VRF debería tardar entre 15 y 30 minutos
+La habilitación del VRF debería tardar entre 15 y 30 minutos. Luego de que esté habilitado puede ingresar nuevamente a  ```Account Settings``` y en la sección ```Service Endpoints``` dé click en ```On```
 
 
 ## Creación de la VPC y la subnet
@@ -298,6 +298,8 @@ Finalmente, habilite el endpoint privado
 ## Referencias :mag:
 
 - [Guía VPN-for-VPC-Client-to-Site](https://github.com/emeloibmco/VPN-for-VPC-Client-to-Site)
+
+- [IBM Cloud Docs - Enabling VRF and service endpoints](https://cloud.ibm.com/docs/account?topic=account-vrf-service-endpoint&interface=ui)
 
 <br />
 
