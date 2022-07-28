@@ -3,7 +3,7 @@
 <br />
 
 <br />
-<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/Arquitectura.png"></p>
+<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/Arquitectura.png"></p>
 <br />
 
 ## Tabla de contenido 📑
@@ -37,26 +37,50 @@ Ingrese a su cuenta de [IBM Cloud](https://cloud.ibm.com/), dé clic en la opci�
 Para configurar su instacia de DB2 seleccione la ubicación de su preferencia, el plan ```lite```, asigne un nombre al servicio y un grupo de recursos.
 
 Finalmente, dé clic en la sección izquierda para aceptar los license agreements y cree el servicio con la opción ```Create```
-<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/Arquitectura.png"></p>
+<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/conf-db2.png"></p>
 
 Ya que su servicio esté aprovisionado, acceda a él y seleccione ```Service Credentials``` en la sección de la izquierda, posteriormente dé click en ```New Credential```:
 
-<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/Arquitectura.png"></p>
+<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/crear-credencial-1.png"></p>
 
 Asigne un nombre a su credencial y seleccione el rol ```Manager```:
 
-<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/Arquitectura.png"></p>
+<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/crear-credencial-2.png"></p>
 
 Al dar click en las credenciales creadas podrá acceder a una lista donde puede consultar elementos como la apikey y el host.
 
 
 ## Habilitación de VRF
-Para habilitar el Virtual Routing and Forwarding en su cuenta de IBM Cloud hya dos opciones: Habilitarlo a través de la consola o a través de la interfaz de usuario:
+El Virtual Routing and Forwarding permite habilitar endpoints privados al crear recursos, lo que permite tener conexiones más seguras, ya que se realizan las conexiones a través de la red privada de IBM Cloud. Para habilitar el VRF en su cuenta de IBM Cloud hay dos opciones:
 
-**Opción 1: Habilitar VRF a través de la consola**
+**Opción 1: Habilitar VRF a través de la línea de comandos**
 
+Ingrese a IBM  Cloud Shell a través del banner superior de IBM Cloud. Verifique si los service endpoints están habilitados con el comando
+
+```
+ibmcloud account show
+```
+
+<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/crear-credencial-2.png"></p>
+
+Si aparece Service Endpoint Enabled: false, como se puede ver en la imagen, habilite los service endpoint con el siguiente comando:
+
+```
+ibmcloud account update --service-endpoint-enable true
+```
+
+A continuación deberá generar un ticket para habilitar VRF, esto se hace ingresando la letra ```y```.
+
+<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/crear-credencial-2.png"></p>
+
+Luego de que el VRF sea habilitado, ingrese nuevamente el comando para habilitar la conectividad por service endpoint.
 
 **Opción 2: Habilitar VRF a través de la interfaz de usuario**
+
+En el banner superior, dé click en ```Manage``` y seleccione la opción ```Account```. En la sección de la izquierda seleccione ```Account Settings```. Baje hasta la sección ```Virtual routing and Forwarding``` y dé click en ```Create case```
+
+<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/crear-credencial-2.png"></p>
+
 
 ## Creación de la VPC y la subnet
 
