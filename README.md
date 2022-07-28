@@ -61,7 +61,7 @@ Ingrese a IBM  Cloud Shell a través del banner superior de IBM Cloud. Verifique
 ibmcloud account show
 ```
 
-<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/crear-credencial-2.png"></p>
+<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/service-endpoint.png"></p>
 
 Si aparece Service Endpoint Enabled: false, como se puede ver en la imagen, habilite los service endpoint con el siguiente comando:
 
@@ -71,7 +71,7 @@ ibmcloud account update --service-endpoint-enable true
 
 A continuación deberá generar un ticket para habilitar VRF, esto se hace ingresando la letra ```y```.
 
-<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/crear-credencial-2.png"></p>
+<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/VRF.png"></p>
 
 Luego de que el VRF sea habilitado, ingrese nuevamente el comando para habilitar la conectividad por service endpoint.
 
@@ -79,7 +79,11 @@ Luego de que el VRF sea habilitado, ingrese nuevamente el comando para habilitar
 
 En el banner superior, dé click en ```Manage``` y seleccione la opción ```Account```. En la sección de la izquierda seleccione ```Account Settings```. Baje hasta la sección ```Virtual routing and Forwarding``` y dé click en ```Create case```
 
-<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/crear-credencial-2.png"></p>
+<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/UI.png"></p>
+
+No modifique la descripción del caso, ingrese su número de cuenta y dé click en ```Submit```.
+
+La habilitación del VRF debería tardar entre 15 y 30 minutos
 
 
 ## Creación de la VPC y la subnet
