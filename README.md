@@ -31,6 +31,8 @@
 
 - [Git](https://git-scm.com/downloads)
 
+- Contar con un sistema operativo Linux con el navegador Google Chrome instalado (Para la generación de certificados con OpenVPN)
+
 ## Creación de DB2 Warehouse :file_cabinet:
 Ingrese a su cuenta de [IBM Cloud](https://cloud.ibm.com/), dé clic en la opción ```Catalog``` de la barra superior, posteriormente en la sección izquierda seleccione ```Databases``` y elija la opción ```Db2```.
 
@@ -96,7 +98,7 @@ Para crear una VPC en su cuenta de IBM Cloud siga los pasos que se indican a con
 
 2. En la sección de ```Network``` seleccione la opción ```VPCs``` y posteriormente dé click en el botón ```Create```. 
 
-<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/Arquitectura.png"></p>
+<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/conf-VPC.png"></p>
 
 Una vez le aparezca la ventana para la configuración y creación de la *VPC*, complete lo siguiente:
 
@@ -111,6 +113,8 @@ Cuando ya tenga todos los campos configurados dé click en el botón ```Create v
 
 3. Espere unos minutos mientras la *VPC* aparece en estado disponible y asegúrese de tener seleccionada la región en la cual la implementó.
 4. Una vez haya sido aprovisonada la VPC, dé click en el nombre e ingrese a la pestaña ```Address prefixes```. En dicha pestaña, de click en ```Create``` e ingrese la dirección IP que desee junto con la máscara.
+
+<p align="center"><img width="400" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/address-prefix.png"></p>
 
 > NOTA: Puede utilizar la IP y máscara sugeridas en las subnets creadas por defecto cuando se estaba aprovisionando la VPC.
 
@@ -134,9 +138,10 @@ Cuando ya tenga todos los campos configurados dé click en el botón ```Create s
 
 
 ## Configuración de la VPN :gear:
+<br>
 
-**Crear una autorización IAM sevice-to-service**
-<br/>
+### Crear una autorización IAM sevice-to-service
+
 Para crear una autorización IAM sevice-to-service para su servidor VPN y certificate manager siga los siguientes pasos:
 1. Desde la consola de IBM Cloud, vaya a la página [Manage Autorizations](https://cloud.ibm.com/iam/authorizations) y dé clic en el botón ```Create```
 2. En el menú desplegable seleccione ```VPC Infrastructure Services``` y luego seleccione ```Resource based on selected attributes```
@@ -145,7 +150,9 @@ Para crear una autorización IAM sevice-to-service para su servidor VPN y certif
 5. Seleccione la opción ```All resources``` y verifique la casilla ```Writer```
 6. Dé clic en ```Authorize```
 
-**Gestión de certificados de cliente y servidor VPN**
+<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/Arquitectura.png"></p>
+
+## Gestión de certificados de cliente y servidor VPN
 <br/>
 Para la gestión de certificados hay dos opciones, usar OpenVPN para generar los certificados u ordenar un certificado usando Certificate Manager.
 
@@ -185,14 +192,13 @@ Verifique que la llave pública haya sido generada en la ruta ```./pki/issued/cl
 
 Para importar el certificado del servidor al certificate manager siga estos pasos:
 1. En el navegador Google Chrome diríjase a la página de [Certificate Manager](https://cloud.ibm.com/catalog/services/certificate-manager), complete la información y dé clic en ```Create``` para crear una instancia.
-2. Diríjase a la página ```Your Certificates``` e importe el certificado del servidor según los siguientes pasos:
+2. Diríjase a la página ```Your Certificates``` y seleccione la opción ```Import```. Para importar el certificado siga los siguientes pasos:
 
-   * Elija un nombre para su certificado, este no puede contener guiones, números ni mayúsculas (ej. vpcdemo)
-   * Dé clic al botón ```Browse``` y seleccione el archivo de certificado ```./pki/issued/vpn-server.vpn.ibm.com.crt```
-   * Dé clic al botón ```Browse``` y seleccione el archivo de llave privada ```./pki/private/vpn-server.vpn.ibm.com.key```
-   * Dé clic al botón ```Browse``` y seleccione el archivo de certificado intermediario ```./pki/ca.crt```
+   * **Name**: Elija un nombre para su certificado, este no puede contener guiones, números ni mayúsculas (ej. vpcdemo)
+   * **Certificate file**: Dé clic al botón ```Browse``` y seleccione el archivo de certificado ```./pki/issued/vpn-server.vpn.ibm.com.crt```
+   * **Private key file**: Dé clic al botón ```Browse``` y seleccione el archivo de llave privada ```./pki/private/vpn-server.vpn.ibm.com.key```
+   * **Intermediate certificate file**: Dé clic al botón ```Browse``` y seleccione el archivo de certificado intermediario ```./pki/ca.crt```
    * Dé clic al botón ```Import```
-   <br/>
 
 <br/>
 
@@ -215,6 +221,8 @@ Para encontrar el CRN del certificado, siga estos pasos:
 1. En la [consola de IBM Cloud](https://cloud.ibm.com/vpc-ext) Vaya al ícono de menú y seleccione ```Resource List```
 2. Dé clic para expandir ```Services and software``` y posteriormente seleccione el Certificate Manager del que desea obtener el CRN.
 3. Seleccione cualquier parte en esa fila de la tabla para abrir el panel lateral de detalles. El CRN del certificado se encuentra listado allí.
+
+<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/Arquitectura.png"></p>
 
 ## Configurar claves SSH :closed_lock_with_key:
 <br />
