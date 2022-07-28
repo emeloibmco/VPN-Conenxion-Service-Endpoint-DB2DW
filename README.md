@@ -1,7 +1,7 @@
 # VPN-Conexion-Service-Endpoint-DB2DW :computer:
 
 <br />
-
+A continuación se presentan los pasos a seguir para implementar la arquitectura presentada en la imagen, la cual permite habilitar la conectividad entre un cliente y una instancia de DB2 Warehouse por medio de una VPN para VPC, usando el servicio de nginx como proxy.
 <br />
 <p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/Arquitectura.png"></p>
 <br />
@@ -14,7 +14,7 @@
 2. [Habilitación de VRF](#habilitación-de-vrf)
 3. [Creación de la VPC y la subnet](#creación-de-la-vpc-y-la-subnet)
 4. [Configuración de la VPN](#configuración-de-la-vpn-gear) 
-5. [Configurar claves SSH y creación de la VSI](#configurar-claves-ssh-closedlockwithkey)
+5. [Configuración de claves SSH y creación de la VSI](#configuración-de-claves-ssh-y-creación-de-la-vsi-closedlockwithkey)
 6. [Instalación del proxy Nginx](#instalar-nginx-bulb)
 7. [Flow Log](#flow-log)
 8. [Referencias](#Referencias-mag)
@@ -224,8 +224,10 @@ Para encontrar el CRN del certificado, siga estos pasos:
 
 <p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/CRN.png"></p>
 
-## Configurar claves SSH :closed_lock_with_key:
+## Configuración de claves SSH y creación de la VSI :closed_lock_with_key:
 <br />
+
+### Configurar claves SSH
 Para poder desplegar una *VSI* en *VPC* es necesario realizar la respectiva configuración para las claves *SSH*. Con base en esto, realice lo siguiente:
 
 1. Para generar una clave *SSH* acceda al *IBM Cloud Shell* y coloque el comando:
@@ -251,7 +253,7 @@ Una vez ha configurado las claves *SSH* proceda con la creación de la *VSI* Lin
 
 1. Entre al menú desplegable de la izquierda y seleccione ```VPC Infrastructure```. En la sección de ```Compute``` seleccione la opción ```Virtual Server instances``` y posteriormente dé click en el botón ```Create```. 
 
-<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/Arquitectura.png"></p>
+<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/VSI.png"></p>
 
 Una vez le aparezca la ventana para la configuración y creación de la *VSI*, complete lo siguiente:
 
@@ -261,7 +263,7 @@ Una vez le aparezca la ventana para la configuración y creación de la *VSI*, c
 * ```Hosting type```: seleccione la opción **Public**.
 * ```Operating system```: seleccione la opción **Ubuntu Linux**.
 * ```Profile```: deje seleccionado el perfil que viene por defecto (**Balanced | bx2-2x8**).
-* ```SSH keys```: dé click en el botón ```Create key +```, asigne un nombre exclusivo para su clave *SSH*, seleccione el grupo de recursos y la ubicación y finalmente en **Public key** coloque la clave copiada en el ítem 4 del paso [Configurar claves SSH](#configurar-claves-ssh-closedlockwithkey). Posteriormente, dé click en el botón ```Create```.
+* ```SSH keys```: dé click en el botón ```Create key +```, asigne un nombre exclusivo para su clave *SSH*, seleccione el grupo de recursos y la ubicación y finalmente en **Public key** coloque la clave copiada en el ítem 4 del paso [Configurar claves SSH](#configurar-claves-ssh). Posteriormente, dé click en el botón ```Create```.
 * ```Virtual private cloud```: seleccione la *VPC* creada anteriormente.
 * Los demás parámetros no los modifique, deje los valores establecidos por defecto.
 
@@ -272,8 +274,9 @@ Cuando ya tenga todos los campos configurados dé click en el botón ```Create v
 <br />
 
 
-## Instalar Nginx :bulb:
-Después de ingresar a su VSI por medio de la llave SSH, puede proceder a instalar nginx en su virtual server. Para esto use los siguientes comandos:
+## Instalación de Nginx :bulb:
+Después de ingresar a su VSI por medio de la llave SSH, puede proceder a instalar nginx en su virtual server. Para esto use los siguientes comandos desde la terminal:
+
 ```
 yum upgrade
 ```
@@ -286,12 +289,14 @@ yum install epel-release
 yum install nginx
 ```
 
+Ace
+
 Ingrese a la carpeta de nginx que está ubicada en el path ```/etc/nginx/``` y luego de esto acceda al archivo de configuración con el siguiente comando:
 ```
 cat nginx.conf
 ```
 
-Finalmente, habilite el endpoint privado
+
 
 ## Flow Log
 ## Referencias :mag:
