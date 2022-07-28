@@ -32,9 +32,31 @@
 - [Git](https://git-scm.com/downloads)
 
 ## Creación de DB2 Warehouse :file_cabinet:
-Ingrese a su cuenta de [IBM Cloud](https://cloud.ibm.com/), dé clic en el menú desplegable de la izquierda 
+Ingrese a su cuenta de [IBM Cloud](https://cloud.ibm.com/), dé clic en la opción ```Catalog``` de la barra superior, posteriormente en la sección izquierda seleccione ```Databases``` y elija la opción ```Db2```.
+
+Para configurar su instacia de DB2 seleccione la ubicación de su preferencia, el plan ```lite```, asigne un nombre al servicio y un grupo de recursos.
+
+Finalmente, dé clic en la sección izquierda para aceptar los license agreements y cree el servicio con la opción ```Create```
+<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/Arquitectura.png"></p>
+
+Ya que su servicio esté aprovisionado, acceda a él y seleccione ```Service Credentials``` en la sección de la izquierda, posteriormente dé click en ```New Credential```:
+
+<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/Arquitectura.png"></p>
+
+Asigne un nombre a su credencial y seleccione el rol ```Manager```:
+
+<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/Arquitectura.png"></p>
+
+Al dar click en las credenciales creadas podrá acceder a una lista donde puede consultar elementos como la apikey y el host.
+
 
 ## Habilitación de VRF
+Para habilitar el Virtual Routing and Forwarding en su cuenta de IBM Cloud hya dos opciones: Habilitarlo a través de la consola o a través de la interfaz de usuario:
+
+**Opción 1: Habilitar VRF a través de la consola**
+
+
+**Opción 2: Habilitar VRF a través de la interfaz de usuario**
 
 ## Creación de la VPC y la subnet
 
