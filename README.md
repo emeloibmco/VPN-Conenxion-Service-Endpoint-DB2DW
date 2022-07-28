@@ -150,7 +150,7 @@ Para crear una autorización IAM sevice-to-service para su servidor VPN y certif
 5. Seleccione la opción ```All resources``` y verifique la casilla ```Writer```
 6. Dé clic en ```Authorize```
 
-<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/Arquitectura.png"></p>
+<p align="center"><img width="500" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/aut-IAM.png"></p>
 
 ## Gestión de certificados de cliente y servidor VPN
 <br/>
@@ -222,7 +222,7 @@ Para encontrar el CRN del certificado, siga estos pasos:
 2. Dé clic para expandir ```Services and software``` y posteriormente seleccione el Certificate Manager del que desea obtener el CRN.
 3. Seleccione cualquier parte en esa fila de la tabla para abrir el panel lateral de detalles. El CRN del certificado se encuentra listado allí.
 
-<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/Arquitectura.png"></p>
+<p align="center"><img width="600" src="https://github.com/emeloibmco/VPN-Conexion-Service-Endpoint-DB2DW/blob/main/images/CRN.png"></p>
 
 ## Configurar claves SSH :closed_lock_with_key:
 <br />
