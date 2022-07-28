@@ -289,7 +289,6 @@ yum install epel-release
 yum install nginx
 ```
 
-Ace
 
 Ingrese a la carpeta de nginx que está ubicada en el path ```/etc/nginx/``` y luego de esto acceda al archivo de configuración con el siguiente comando:
 ```
